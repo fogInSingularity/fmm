@@ -8,15 +8,11 @@ extern "C" {
 #include <stdbool.h>
 #include <stddef.h>
 
-typedef enum {
-    FmmMatMul_kOk = 0,
-    FmmMatMul_kSizeError = 1,
-} FmmMatMulStatus;
-
 //    k            n         n
 // m      *   k        = m 
 // 
-FmmMatMulStatus FmmMatMul(const float* matA, const float* matB, float* matC, size_t size_m, size_t size_n, size_t size_k);
+void FmmMatMulf(const float* matA, const float* matB, float* matC, size_t size_m, size_t size_n, size_t size_k);
+void FmmMatMuld(const double* matA, const double* matB, double* matC, size_t size_m, size_t size_n, size_t size_k);
 
 #if defined (__cplusplus)
 }
