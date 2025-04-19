@@ -13,8 +13,8 @@ typedef enum {
     FmmMatMul_kSizeError = 1,
 } FmmMatMulStatus;
 
-//    n            k         k
-// m      *   n        = m 
+//    k            n         n
+// m      *   k        = m 
 // 
 FmmMatMulStatus FmmMatMul(const float* matA, const float* matB, float* matC, size_t size_m, size_t size_n, size_t size_k);
 
