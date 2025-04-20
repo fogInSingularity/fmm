@@ -29,7 +29,7 @@ void FmmMatMulf(const float* matA, const float* matB, float* matC, size_t size_m
 #elif defined (KERNEL)
     FmmMatMulfKernel(matA, matB, matC, size_m, size_n, size_k);
 #else 
-    FmmMatMulfNaive(matA, matB, matC, size_m, size_n, size_k);    
+    FmmMatMulfKernel(matA, matB, matC, size_m, size_n, size_k);    
 #endif // NAIVE TRANSPOSE
 }
 
