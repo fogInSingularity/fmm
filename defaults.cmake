@@ -33,7 +33,7 @@ target_compile_options(${TARGET}
 
         $<$<CONFIG:Release>:
             -g
-            -O2
+            -Ofast
             -march=native
             -flto
             -DNDEBUG
@@ -60,7 +60,7 @@ target_link_options(${TARGET}
 
         $<$<CONFIG:Release>:
             -g
-            -O2
+            -Ofast
             -march=native
             -flto
         >

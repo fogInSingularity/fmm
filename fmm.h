@@ -12,7 +12,7 @@ extern "C" {
 // m      *   k        = m 
 // 
 void FmmMatMulf(const float* matA, const float* matB, float* matC, size_t size_m, size_t size_n, size_t size_k);
-void FmmMatMuld(const double* matA, const double* matB, double* matC, size_t size_m, size_t size_n, size_t size_k);
+// void FmmMatMuld(const double* matA, const double* matB, double* matC, size_t size_m, size_t size_n, size_t size_k);
 
 #if defined (__cplusplus)
 }
