@@ -1,24 +1,28 @@
-set(TARGET fmm-defaults)
+set(TARGET fmm-test-defaults)
 
 add_library(${TARGET} INTERFACE)
 
 target_compile_features(${TARGET}
     INTERFACE
-        c_std_11
+        cxx_std_20
 )
 
 target_compile_options(${TARGET}
     INTERFACE
         -fdiagnostics-color=always
  
+        -Wno-interference-size
+
         -Wall
         -Wextra
         -Wpedantic
         -Wshadow
         -Wconversion
         -Wsign-conversion
-        -Wunused
+        # -Wunused
+        -Wno-unused-function
         -Wformat=2
+        -Wnon-virtual-dtor
 
         # -fstack-protector-strong # inserts checks for buffer overflow
         # -fPIE -pie
@@ -29,12 +33,11 @@ target_compile_options(${TARGET}
             -ggdb
             -fsanitize=address,leak,undefined
             -fno-omit-frame-pointer
-
-            -march=native
         >
 
         $<$<CONFIG:Release>:
-            -Ofast
+            -g
+            -O2
             -march=native
             -flto
             -DNDEBUG
@@ -50,6 +53,7 @@ target_link_options(${TARGET}
         # -fPIE -pie
         # -fuse-ld=mold
         -rdynamic
+        -Wno-unused-function
 
         $<$<CONFIG:Debug>:
             -Og
@@ -57,13 +61,11 @@ target_link_options(${TARGET}
             -ggdb
             -fsanitize=address,leak,undefined
             -fno-omit-frame-pointer
-            
-            -march=native
         >
 
         $<$<CONFIG:Release>:
             -g
-            -Ofast
+            -O2
             -march=native
             -flto
         >

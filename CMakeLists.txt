@@ -24,12 +24,12 @@ include(defaults.cmake)
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-        fmm.c
+        src/fmm.c
 )
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
-        .
+        include
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -37,3 +37,4 @@ target_link_libraries(${PROJECT_NAME}
         fmm-defaults
 )
 
+add_subdirectory(benchmarks)

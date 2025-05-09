@@ -1,3 +1,5 @@
 build
 .cache
 
+./benchmarks/bench_fmm  
+./benchmarks/bench_openblas
